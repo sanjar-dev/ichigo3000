@@ -13,6 +13,7 @@ body {
 }
 
 #infoBox {
+    display: none;
     background-color: lightpink;
     width: 30%;
     margin: auto;

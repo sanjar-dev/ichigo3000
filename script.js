@@ -26,11 +26,7 @@ updateInfoBox();
 
 // Show progress information box
 function showInfoBox() {
-    if (infoBoxDisplay.style.display == "none") {
-        infoBoxDisplay.style.display = "block";
-    } else {
-        infoBoxDisplay.style.display = "none";
-    }
+    infoBoxDisplay.style.display = "block";
 }
 // Update statistics values
 function updateInfoBox() {
