@@ -32,7 +32,7 @@ function showInfoBox() {
 function updateInfoBox() {
     infoBoxDisplay.innerHTML = "STATS:<br>";
     infoBoxDisplay.innerHTML += "Times clicked: " + timesClicked + "<br>";
-    infoBoxDisplay.innerHTML += "Average gain: " + averageGain;
+    infoBoxDisplay.innerHTML += "Average gain: " + convertLitre(averageGain);
 }
 // Reseting score
 function resetScore() {
@@ -54,10 +54,12 @@ function clickCount() {
     clickCounter += randomClickGain;
     clickGain += 1;
     timesClicked = clickGain - 10;
+
     // Outputing updated values
     counterDisplay.innerHTML = convertLitre(clickCounter);
     gainDisplay.innerHTML = clickGain + "x";
     updateInfoBox();
+
     // Caching updated values
     localStorage['clicks'] = clickCounter;
     localStorage['gain'] = clickGain;
