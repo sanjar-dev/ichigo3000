@@ -12,6 +12,8 @@ var gainCached = localStorage['gain'];
 if (clickCached) { clickCounter = JSON.parse(clickCached); } else { clickCounter = 0; }
 if (gainCached) { clickGain = JSON.parse(gainCached); } else { clickGain = 10; }
 var timesClicked = clickGain - 10;
+var averageGain = clickGain;
+var previousAvarageGain = averageGain;
 
 // Setting output values
 var counterDisplay = document.getElementById("clickCounter");
@@ -20,8 +22,7 @@ var infoBoxDisplay = document.getElementById("infoBox");
 
 counterDisplay.innerHTML = convertLitre(clickCounter);
 gainDisplay.innerHTML = clickGain + "x";
-infoBoxDisplay.innerHTML = "STATS:<br>";
-infoBoxDisplay.innerHTML += "Times clicked: " + timesClicked;
+updateInfoBox();
 
 // Show progress information box
 function showInfoBox() {
@@ -30,6 +31,12 @@ function showInfoBox() {
     } else {
         infoBoxDisplay.style.display = "none";
     }
+}
+// Update statistics values
+function updateInfoBox() {
+    infoBoxDisplay.innerHTML = "STATS:<br>";
+    infoBoxDisplay.innerHTML += "Times clicked: " + timesClicked + "<br>";
+    infoBoxDisplay.innerHTML += "Average gain: " + averageGain;
 }
 // Reseting score
 function resetScore() {
@@ -44,14 +51,17 @@ function resetScore() {
 // Clicking button
 function clickCount() {
     // Adding values
-    clickCounter += Math.floor(Math.random() * clickGain) + 1;
+    randomClickGain = Math.floor(Math.random() * clickGain) + 1;
+    averageGain = (previousAvarageGain + randomClickGain) / 2;
+    previousAvarageGain = Math.round(averageGain);
+
+    clickCounter += randomClickGain;
     clickGain += 1;
     timesClicked = clickGain - 10;
     // Outputing updated values
     counterDisplay.innerHTML = convertLitre(clickCounter);
     gainDisplay.innerHTML = clickGain + "x";
-    infoBoxDisplay.innerHTML = "STATS:<br>";
-    infoBoxDisplay.innerHTML += "Times clicked: " + timesClicked;
+    updateInfoBox();
     // Caching updated values
     localStorage['clicks'] = clickCounter;
     localStorage['gain'] = clickGain;
