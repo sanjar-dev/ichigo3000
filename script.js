@@ -5,19 +5,32 @@ const litrePostfix = {
     kl: " kl. (kilolitre)"
 }
 var clickCounter, clickGain, postfix, coefficient;
-var counterDisplay = document.getElementById("clickCounter");
-var gainDisplay = document.getElementById("showClickGain");
 
 // Loading cached variables
 var clickCached = localStorage['clicks'];
 var gainCached = localStorage['gain'];
 if (clickCached) { clickCounter = JSON.parse(clickCached); } else { clickCounter = 0; }
 if (gainCached) { clickGain = JSON.parse(gainCached); } else { clickGain = 10; }
+var timesClicked = clickGain - 10;
 
 // Setting output values
+var counterDisplay = document.getElementById("clickCounter");
+var gainDisplay = document.getElementById("showClickGain");
+var infoBoxDisplay = document.getElementById("infoBox");
+
 counterDisplay.innerHTML = convertLitre(clickCounter);
 gainDisplay.innerHTML = clickGain + "x";
+infoBoxDisplay.innerHTML = "STATS:<br>";
+infoBoxDisplay.innerHTML += "Times clicked: " + timesClicked;
 
+// Show progress information box
+function showInfoBox() {
+    if (infoBoxDisplay.style.display == "none") {
+        infoBoxDisplay.style.display = "block";
+    } else {
+        infoBoxDisplay.style.display = "none";
+    }
+}
 // Reseting score
 function resetScore() {
     // Confirming reseting score
@@ -33,9 +46,12 @@ function clickCount() {
     // Adding values
     clickCounter += Math.floor(Math.random() * clickGain) + 1;
     clickGain += 1;
+    timesClicked = clickGain - 10;
     // Outputing updated values
     counterDisplay.innerHTML = convertLitre(clickCounter);
     gainDisplay.innerHTML = clickGain + "x";
+    infoBoxDisplay.innerHTML = "STATS:<br>";
+    infoBoxDisplay.innerHTML += "Times clicked: " + timesClicked;
     // Caching updated values
     localStorage['clicks'] = clickCounter;
     localStorage['gain'] = clickGain;
