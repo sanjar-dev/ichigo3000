@@ -28,11 +28,23 @@ body {
     margin: auto;
     /* background-color: azure; */
     filter: drop-shadow(0 0 8px azure);
+    -webkit-user-drag: none;
 
     transition: ease-in-out 250ms;
 }
 #button:hover {
     transform: scale(1.250, 1.250);
+}
+
+#scoreDisplay {
+    font-size: 20px;
+}
+
+#statistics {
+    margin: 22px;
+}
+#statistics p {
+    margin: 6px;
 }
 
 #copyright {

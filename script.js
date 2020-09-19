@@ -1,11 +1,15 @@
 // Declaring variables
-var score = 0; // in millilitres
-var multiplier = 0;
 var clicks = 0;
-var displayString = {
-    clicks: "Times clicked: "
+var score = 0; // in millilitres
+var scoreGain = 0;
+var multiplier = 10;
+
+var displayString = { // postfixs for components
+    clicks: "Times clicked: ",
+    multiplier: "Score multiplier: ",
+    scoreGain: "Last score gain: "
 }
-var litreString = {
+var litreString = { // litre metrics
     ml: " ml. (millilitre)",
     l:  " l. (litre)",
     kl: " kl. (kilolitre)"
@@ -15,6 +19,8 @@ var litreString = {
 var button = document.getElementById("button");
 var clicksDisplay = document.getElementById("clicksDisplay");
 var scoreDisplay = document.getElementById("scoreDisplay");
+var multiplierDisplay = document.getElementById("multiplierDisplay");
+var scoreGainDisplay = document.getElementById("scoreGainDisplay");
 
 // Update output variables
 // of components in the start
@@ -25,13 +31,17 @@ updateOutput();
 function updateOutput() {
     // Updating inner text of html components
     // to updated variables
-    clicksDisplay.innerHTML = displayString.clicks + clicks.toString();
     scoreDisplay.innerHTML = formatMillilitre(score);
+    clicksDisplay.innerHTML = displayString.clicks + clicks.toString();
+    multiplierDisplay.innerHTML = displayString.multiplier + multiplier.toString() + "x";
+    scoreGainDisplay.innerHTML = displayString.scoreGain + formatMillilitre(scoreGain);
 }
 // Pressing button action
 function buttonPressed() {
     // Adding to score
-    score += Math.floor(Math.random() * 100) + 1;
+    scoreGain = Math.floor(Math.random() * multiplier) + 1;
+    score += scoreGain;
+    multiplier += 5;
     // Adding click
     clicks++;
     // Update output variables
@@ -40,6 +50,7 @@ function buttonPressed() {
 // Format millilitre with coefficient
 // and putting right postfix
 function formatMillilitre(millilitre) { // Returns string
+    // Declaring variables used below
     var postfix, coefficient;
     switch (true) {
         // Starting from highest to lowest
@@ -59,5 +70,5 @@ function formatMillilitre(millilitre) { // Returns string
             coefficient = 1;
         } break;
     }
-    return (((millilitre / coefficient).toFixed(3)).toString() + postfix);
+    return ((millilitre / coefficient).toString() + postfix);
 }
