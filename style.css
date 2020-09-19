@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@font-face {
+    font-family: 'KaoriGel';
+    src: url(./assets/KaoriGel.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'KaoriGelBold';
+    src: url(./assets/KaoriGelBold.ttf) format('truetype');
+}
 
 body {
-    --font-main: 'M PLUS Rounded 1c';
+    margin: 0;
     background-color: lightcoral;
-    font-family: var(--font-main), sans-serif;
+    font-family: 'KaoriGel', 'Noto Sans JP', sans-serif;
+}
+
+.main-flex {
+    display: flex;
+    flex-direction: column;
 
     text-align: center;
 }
 
 #copyright {
     font-size: 12px;
-}
-
-#infoBox {
-    display: none;
-    background-color: lightpink;
-    width: 30%;
-    margin: auto;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    border: 2px;
-    border-radius: 6px;
-    border-style: solid;
-    border-color: aliceblue;
 }
