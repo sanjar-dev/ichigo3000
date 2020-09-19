@@ -26,9 +26,10 @@ body {
     width: 48px;
     padding: 4px;
     margin: auto;
-    /* background-color: azure; */
-    filter: drop-shadow(0 0 8px azure);
+
+    filter: drop-shadow(0 0 8px lightcyan);
     -webkit-user-drag: none;
+    -webkit-user-select: none;
 
     transition: ease-in-out 250ms;
 }
@@ -37,11 +38,25 @@ body {
 }
 
 #scoreDisplay {
+    margin-top: 24px;
+    margin-bottom: 12px;
+
     font-size: 20px;
 }
 
 #statistics {
-    margin: 22px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    margin-right: auto;
+    margin-left: auto;
+
+    padding: 6px;
+    width: 40%;
+
+    background-color: lightpink;
+    border: 1px;
+    border-style: solid;
+    border-radius: 8px;
 }
 #statistics p {
     margin: 6px;
