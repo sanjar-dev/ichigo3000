@@ -1,5 +1,6 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
 @font-face {
     font-family: 'KaoriGel';
     src: url(./assets/KaoriGel.ttf) format('truetype');
@@ -23,11 +24,11 @@ body {
 }
 
 #button {
-    width: 48px;
+    width: 64px;
     padding: 4px;
     margin: auto;
 
-    filter: drop-shadow(0 0 8px lightcyan);
+    filter: drop-shadow(0 0 8px red);
     -webkit-user-drag: none;
     -webkit-user-select: none;
 
@@ -36,9 +37,16 @@ body {
 #button:hover {
     transform: scale(1.250, 1.250);
 }
+#button:active {
+    transform: scale(1, 1);
+    transition: ease-out 50ms;
+}
+#button:active:after {
+    transition: ease-in-out 250ms;
+}
 
 #scoreDisplay {
-    margin-top: 24px;
+    margin-top: 12px;
     margin-bottom: 12px;
 
     font-size: 20px;
@@ -55,6 +63,7 @@ body {
 
     background-color: lightpink;
     border: 1px;
+    border-color: rgb(29, 29, 29);
     border-style: solid;
     border-radius: 8px;
 }

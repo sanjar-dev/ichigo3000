@@ -12,7 +12,7 @@ var displayString = { // postfixs for components
     scoreGain: "Last score gain: ",
     averageScoreGain: "Average score gain: "
 }
-var litreString = { // litre metrics
+var litreString = { // litre metrics postfixs (may add some more)
     ml: " ml. (millilitre)",
     l:  " l. (litre)",
     kl: " kl. (kilolitre)"
