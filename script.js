@@ -2,7 +2,6 @@
 var clicks = 0;
 var score = 0; // in millilitres
 var scoreGain = 0;
-var previousScoreGain = scoreGain;
 var averageScoreGain = 0;
 var multiplier = 10;
 
@@ -25,6 +24,7 @@ var scoreDisplay = document.getElementById("scoreDisplay");
 var multiplierDisplay = document.getElementById("multiplierDisplay");
 var scoreGainDisplay = document.getElementById("scoreGainDisplay");
 var averageScoreGainDisplay = document.getElementById("averageScoreGainDisplay");
+var multiplierMainDisplay = document.getElementById("multiplierMainDisplay");
 
 // Update output variables
 // of components in the start
@@ -40,18 +40,17 @@ function updateOutput() {
     multiplierDisplay.innerHTML = displayString.multiplier + multiplier.toString() + "x";
     scoreGainDisplay.innerHTML = displayString.scoreGain + formatMillilitre(scoreGain);
     averageScoreGainDisplay.innerHTML = displayString.averageScoreGain + formatMillilitre(averageScoreGain);
+    multiplierMainDisplay.innerHTML = multiplier + "x";
 }
 // Pressing button action
 function buttonPressed() {
     // Adding to score
     scoreGain = Math.floor(Math.random() * multiplier) + 1;
-    averageScoreGain = (scoreGain + previousScoreGain) / 2;
+    averageScoreGain = Math.round(((averageScoreGain + scoreGain) / 2));
     score += scoreGain;
     multiplier += 5;
     // Adding click
     clicks++;
-    // Updating previous values
-    previousScoreGain = scoreGain;
     // Update output variables
     updateOutput();
 }
