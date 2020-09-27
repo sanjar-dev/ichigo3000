@@ -43,7 +43,7 @@ body {
     transition: 0ms;
 }
 #button:active:after {
-    transition: ease-in-out 250ms;
+    transition: ease-in-out 50ms;
 }
 
 #mainDisplay {
@@ -54,8 +54,8 @@ body {
     font-size: 20px;
 }
 #mainDisplay p {
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 #statistics {
@@ -78,6 +78,24 @@ body {
     margin: 6px;
 }
 
+#footerSpace {
+    height: 52px;
+}
+
 #copyright {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 12px;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: lightpink;
+    text-align: center;
+
+    border-top: 1px solid black;
+
     font-size: 12px;
 }
