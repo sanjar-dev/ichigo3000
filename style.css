@@ -39,7 +39,8 @@ body {
 }
 #button:active {
     transform: scale(1, 1);
-    transition: ease-out 50ms;
+    /* transition: ease-out 50ms; */
+    transition: 0ms;
 }
 #button:active:after {
     transition: ease-in-out 250ms;
@@ -65,6 +66,7 @@ body {
 
     padding: 6px;
     width: 40%;
+    max-width: 540px;
 
     background-color: lightpink;
     border: 1px;

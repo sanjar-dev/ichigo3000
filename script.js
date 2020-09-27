@@ -17,6 +17,19 @@ var litreString = { // litre metrics postfixs (may add some more)
     kl: " kl. (kilolitre)"
 } 
 
+// Loading cached values (if cached)
+var data; // define data variable
+if (localStorage.cachedData) {
+    // parse JSON data value from localstorage
+    data = JSON.parse(localStorage.cachedData);
+    // load values
+    clicks = data.clicks;
+    score = data.score;
+    scoreGain = data.scoreGain;
+    averageScoreGain = data.averageScoreGain;
+    multiplier = data.multiplier;
+}
+
 // HTML Components
 var button = document.getElementById("button");
 var clicksDisplay = document.getElementById("clicksDisplay");
@@ -42,6 +55,20 @@ function updateOutput() {
     averageScoreGainDisplay.innerHTML = displayString.averageScoreGain + formatMillilitre(averageScoreGain);
     multiplierMainDisplay.innerHTML = multiplier + "x";
 }
+// Cache values
+function cacheData() {
+    // Set the data object
+    // to required variables
+    data = {
+        clicks: clicks,
+        score: score,
+        scoreGain: scoreGain,
+        averageScoreGain: averageScoreGain,
+        multiplier: multiplier
+    }
+    // Pack it onto the localstorage as JSON
+    localStorage.cachedData = JSON.stringify(data);
+}
 // Pressing button action
 function buttonPressed() {
     // Adding to score
@@ -51,8 +78,9 @@ function buttonPressed() {
     multiplier += 5;
     // Adding click
     clicks++;
-    // Update output variables
+    // Update output and cache updated variables
     updateOutput();
+    cacheData();
 }
 // Format millilitre with coefficient
 // and putting right postfix
@@ -77,5 +105,6 @@ function formatMillilitre(millilitre) { // Returns string
             coefficient = 1;
         } break;
     }
+    // Return formatted string value
     return ((millilitre / coefficient).toString() + postfix);
 }
