@@ -38,12 +38,23 @@ body {
     transform: scale(1.250, 1.250);
 }
 #button:active {
-    transform: scale(1, 1);
+    transform: scale(0.9, 0.9);
     /* transition: ease-out 50ms; */
     transition: 0ms;
 }
 #button:active:after {
-    transition: ease-in-out 50ms;
+    transition: ease-in-out 20ms;
+}
+
+button {
+    background-color: lightpink;
+    padding: 4px 6px;
+    border: 1px solid black;
+    border-radius: 4px;
+
+    font-family: 'KaoriGel';
+    font-style: bold;
+    font-size: 16px;
 }
 
 #mainDisplay {

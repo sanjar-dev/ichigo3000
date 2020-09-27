@@ -82,6 +82,14 @@ function buttonPressed() {
     updateOutput();
     cacheData();
 }
+// Reset score
+function resetScore() {
+    isConfirmed = confirm("Are you sure you want to reset your score?");
+    if (isConfirmed) {
+        localStorage.clear();
+        document.location.reload();
+    }
+}
 // Format millilitre with coefficient
 // and putting right postfix
 function formatMillilitre(millilitre) { // Returns string
