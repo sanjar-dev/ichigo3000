@@ -84,8 +84,10 @@ function buttonPressed() {
 }
 // Reset score
 function resetScore() {
+    // Confirm reset score
     isConfirmed = confirm("Are you sure you want to reset your score?");
     if (isConfirmed) {
+        // Clear cache and reload page
         localStorage.clear();
         document.location.reload();
     }
