@@ -85,7 +85,7 @@ function buttonPressed() {
 // Reset score
 function resetScore() {
     // Confirm reset score
-    isConfirmed = confirm("Are you sure you want to reset your score?");
+    let isConfirmed = confirm("Are you sure you want to reset your score?");
     if (isConfirmed) {
         // Clear cache and reload page
         localStorage.clear();
@@ -96,7 +96,7 @@ function resetScore() {
 // and putting right postfix
 function formatMillilitre(millilitre) { // Returns string
     // Declaring variables used below
-    var postfix, coefficient;
+    let postfix, coefficient;
     switch (true) {
         // Starting from highest to lowest
         // Kilolitre
@@ -117,4 +117,12 @@ function formatMillilitre(millilitre) { // Returns string
     }
     // Return formatted string value
     return ((millilitre / coefficient).toString() + postfix);
+}
+// Hide copyright fixed footer
+function copyrightHide() {
+    let footerText = document.getElementById("copyright");
+    let footerSpace = document.getElementById("footerSpace");
+
+    footerText.remove();
+    footerSpace.remove();
 }

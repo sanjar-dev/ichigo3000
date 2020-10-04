@@ -5,13 +5,11 @@
     font-family: 'KaoriGel';
     src: url(./assets/KaoriGel.ttf) format('truetype');
 }
-@font-face {
-    font-family: 'KaoriGelBold';
-    src: url(./assets/KaoriGelBold.ttf) format('truetype');
-}
 
 body {
     margin: 0;
+    margin-top: 24px;
+    margin-bottom: 24px;
     background-color: lightcoral;
     font-family: 'KaoriGel', 'Noto Sans JP', sans-serif;
 }
@@ -23,12 +21,12 @@ body {
     text-align: center;
 }
 .main-flex h1 {
-    margin-top: 24px;
-    margin-bottom: 0px;
+    margin: 0px;
 }
 #logo-main {
     width: 30%;
-    min-width: 240px;
+    min-width: 280px;
+    max-width: 360px;
 }
 
 #button {
@@ -36,7 +34,7 @@ body {
     padding: 4px;
     margin: auto;
 
-    filter: drop-shadow(0 0 8px red);
+    filter: drop-shadow(0 0 2px white);
     -webkit-user-drag: none;
     -webkit-user-select: none;
 
@@ -99,14 +97,14 @@ button {
 }
 
 #footerSpace {
-    height: 52px;
+    height: 80px;
 }
 
 #copyright {
     position: fixed;
     width: 100%;
     margin: 0;
-    padding: 12px;
+    padding: 8px;
 
     bottom: 0;
     left: 0;
@@ -118,4 +116,8 @@ button {
     border-top: 1px solid black;
 
     font-size: 12px;
+}
+#copyright button {
+    font-size: 10px;
+    margin-left: 32px;
 }
