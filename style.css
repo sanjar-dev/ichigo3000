@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
 @font-face {
     font-family: 'KaoriGel';
-    src: url(./assets/KaoriGel.ttf) format('truetype');
+    src: url(./assets/font/KaoriGel.ttf) format('truetype');
 }
 
 body {
@@ -34,7 +34,7 @@ body {
     padding: 4px;
     margin: auto;
 
-    filter: drop-shadow(0 0 2px white);
+    filter: drop-shadow(0 0 2px white) hue-rotate(180deg);
     -webkit-user-drag: none;
     -webkit-user-select: none;
 
