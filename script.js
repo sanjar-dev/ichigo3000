@@ -15,7 +15,7 @@ var litreString = { // litre metrics postfixs (may add some more)
     ml: " ml. (millilitre)",
     l:  " l. (litre)",
     kl: " kl. (kilolitre)"
-} 
+}
 
 // Loading cached values (if cached)
 var data; // define data variable
@@ -31,13 +31,13 @@ if (localStorage.cachedData) {
 }
 
 // HTML Components
-var button = document.getElementById("button");
-var clicksDisplay = document.getElementById("clicksDisplay");
-var scoreDisplay = document.getElementById("scoreDisplay");
-var multiplierDisplay = document.getElementById("multiplierDisplay");
-var scoreGainDisplay = document.getElementById("scoreGainDisplay");
-var averageScoreGainDisplay = document.getElementById("averageScoreGainDisplay");
-var multiplierMainDisplay = document.getElementById("multiplierMainDisplay");
+const button = document.getElementById("button");
+const clicksDisplay = document.getElementById("clicksDisplay");
+const scoreDisplay = document.getElementById("scoreDisplay");
+const multiplierDisplay = document.getElementById("multiplierDisplay");
+const scoreGainDisplay = document.getElementById("scoreGainDisplay");
+const averageScoreGainDisplay = document.getElementById("averageScoreGainDisplay");
+const multiplierMainDisplay = document.getElementById("multiplierMainDisplay");
 
 // Update output variables
 // of components in the start
